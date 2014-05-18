@@ -1,5 +1,8 @@
 package perso.challenges.crackthecode.linkedlists;
 
+import perso.challenges.crackthecode.structure.IntegerLinkedList;
+import perso.challenges.crackthecode.structure.Node;
+
 import java.util.HashSet;
 
 /**
@@ -8,36 +11,36 @@ import java.util.HashSet;
  * Time: 23:08
  */
 public class LinkedLists {
-    public static LinkedList removeDuplicates(LinkedList linkedList) {
-        HashSet<LinkedList.Node> uniqueNodes = new HashSet<LinkedList.Node>();
-        LinkedList.Node node = linkedList.head();
-        LinkedList.Node previousNode = null;
+    public static IntegerLinkedList removeDuplicates(IntegerLinkedList integerLinkedList) {
+        HashSet<Node<Integer>> uniqueNodes = new HashSet<Node<Integer>>();
+        Node<Integer> node = integerLinkedList.head();
+        Node<Integer> previousNode = null;
 
         while (node != null) {
             if (!uniqueNodes.add(node)) {
-                linkedList.removeNext(previousNode);
+                integerLinkedList.removeNext(previousNode);
             } else {
                 previousNode = node;
             }
             node = node.next();
         }
-        return linkedList;
+        return integerLinkedList;
     }
 
-    public static LinkedList removeDuplicatesInPlace(LinkedList linkedList) {
-        LinkedList.Node head = linkedList.head();
-        LinkedList.Node node = head;
-        LinkedList.Node previousNode = null;
+    public static IntegerLinkedList removeDuplicatesInPlace(IntegerLinkedList integerLinkedList) {
+        Node<Integer> head = integerLinkedList.head();
+        Node<Integer> node = head;
+        Node<Integer> previousNode = null;
         int position = 0;
         while (node != null) {
-            LinkedList.Node iterator = head;
+            Node<Integer> iterator = head;
             int positionToCompareWith = 0;
             while (!iterator.equals(node)) {
                 iterator = iterator.next();
                 positionToCompareWith++;
             }
             if (positionToCompareWith < position) {
-                linkedList.removeNext(previousNode);
+                integerLinkedList.removeNext(previousNode);
                 position--;
             } else {
                 previousNode = node;
@@ -45,12 +48,12 @@ public class LinkedLists {
             node = node.next();
             position++;
         }
-        return linkedList;
+        return integerLinkedList;
     }
 
-    public static LinkedList.Node getNthToLastElement(LinkedList linkedList, int n) {
-        LinkedList.Node node = linkedList.head();
-        LinkedList.Node cursor = linkedList.head();
+    public static Node<Integer> getNthToLastElement(IntegerLinkedList integerLinkedList, int n) {
+        Node<Integer> node = integerLinkedList.head();
+        Node<Integer> cursor = integerLinkedList.head();
         int count = 0;
         while (cursor.next() != null) {
             if (count >= n) {
@@ -63,37 +66,37 @@ public class LinkedLists {
         return node;
     }
 
-    public static void removeMiddleElement(LinkedList linkedList) {
-        LinkedList.Node previousCursorSingle = null;
-        LinkedList.Node cursorSingle = linkedList.head();
-        LinkedList.Node cursorDouble = linkedList.head();
+    public static void removeMiddleElement(IntegerLinkedList integerLinkedList) {
+        Node<Integer> previousCursorSingle = null;
+        Node<Integer> cursorSingle = integerLinkedList.head();
+        Node<Integer> cursorDouble = integerLinkedList.head();
         while (cursorDouble.next() != null) {
             previousCursorSingle = cursorSingle;
             cursorSingle = cursorSingle.next();
             cursorDouble = cursorDouble.next().next();
         }
-        linkedList.removeNext(previousCursorSingle);
+        integerLinkedList.removeNext(previousCursorSingle);
     }
 
-    public static LinkedList sum(LinkedList linkedList1, LinkedList linkedList2) {
-        LinkedList.Node node1 = linkedList1.head();
-        LinkedList.Node node2 = linkedList2.head();
+    public static IntegerLinkedList sum(IntegerLinkedList integerLinkedList1, IntegerLinkedList integerLinkedList2) {
+        Node<Integer> node1 = integerLinkedList1.head();
+        Node<Integer> node2 = integerLinkedList2.head();
         boolean get1 = node1 != null;
         boolean get2 = node2 != null;
-        LinkedList sum = null;
+        IntegerLinkedList sum = null;
         int remainder = 0;
         boolean calculate = get1 || get2;
         while (calculate) {
             int currentSum = remainder;
             if (get1) {
-                currentSum += node1.getData();
+                currentSum += node1.value();
             }
             if (get2) {
-                currentSum += node2.getData();
+                currentSum += node2.value();
             }
             int sumDigit = currentSum % 10;
             if (sum == null) {
-                sum = new LinkedList(sumDigit);
+                sum = new IntegerLinkedList(sumDigit);
             } else {
                 sum.append(sumDigit);
             }
@@ -107,9 +110,9 @@ public class LinkedLists {
         return sum;
     }
 
-    public static LinkedList.Node getLoopingElement(LinkedList linkedList) {
-        LinkedList.Node node = linkedList.head();
-        LinkedList.Node doubleSpeedNode = linkedList.head();
+    public static Node<Integer> getLoopingElement(IntegerLinkedList integerLinkedList) {
+        Node<Integer> node = integerLinkedList.head();
+        Node<Integer> doubleSpeedNode = integerLinkedList.head();
         //On cherche un point de rendez-vous
         while (doubleSpeedNode.next() != null) {
             node = node.next();
@@ -122,7 +125,7 @@ public class LinkedLists {
         if (doubleSpeedNode.next() == null) {
             return null;
         }
-        node = linkedList.head();
+        node = integerLinkedList.head();
         while(!node.equals(doubleSpeedNode)) {
             // Les deux noeuds avancent a la meme vitesse et se rejoignent au noeud du cycle
             node = node.next();
