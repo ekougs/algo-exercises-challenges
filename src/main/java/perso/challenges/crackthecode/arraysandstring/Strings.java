@@ -1,8 +1,6 @@
 package perso.challenges.crackthecode.arraysandstring;
 
 import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
 
 /**
  * User: sennen
@@ -13,7 +11,7 @@ public class Strings {
     public static boolean hasOnlyUniqueChars(String string) {
         boolean[] stringCharsFound = new boolean[256];
         for (char stringChar : string.toCharArray()) {
-            if(stringCharsFound[stringChar]) {
+            if (stringCharsFound[stringChar]) {
                 return false;
             }
             stringCharsFound[stringChar] = true;
@@ -35,7 +33,7 @@ public class Strings {
 
     public static String removeDuplicate(String string) {
         char[] chars = string.toCharArray();
-        if(chars == null || chars.length < 2) {
+        if (chars == null || chars.length < 2) {
             return new String(chars);
         }
         boolean[] stringCharsFound = new boolean[256];
@@ -43,8 +41,8 @@ public class Strings {
         int lastCharacterInsertedPosition = 0;
         for (int i = 0; i < chars.length; i++) {
             char currentChar = chars[i];
-            if(!stringCharsFound[currentChar]) {
-               chars[++lastCharacterInsertedPosition] = currentChar;
+            if (!stringCharsFound[currentChar]) {
+                chars[++lastCharacterInsertedPosition] = currentChar;
             }
             stringCharsFound[currentChar] = true;
         }
@@ -52,12 +50,12 @@ public class Strings {
     }
 
     public static boolean areAnagrams(String string1, String string2) {
-        if(string1 == null || string2 == null) {
+        if (string1 == null || string2 == null) {
             return false;
         }
         int word1Length = string1.length();
         int word2Length = string2.length();
-        if(word1Length == 0 || word2Length == 0 || word1Length != word2Length) {
+        if (word1Length == 0 || word2Length == 0 || word1Length != word2Length) {
             return false;
         }
         char[] string1Chars = string1.toCharArray();
@@ -69,7 +67,7 @@ public class Strings {
         int[] numberOfCharacters2 = new int[256];
         for (char string2Char : string2Chars) {
             numberOfCharacters2[string2Char]++;
-            if(numberOfCharacters2[string2Char] > numberOfCharacters1[string2Char]) {
+            if (numberOfCharacters2[string2Char] > numberOfCharacters1[string2Char]) {
                 return false;
             }
         }

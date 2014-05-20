@@ -13,7 +13,7 @@ public class HanoiTowerSolver {
 
     private HanoiTowerSolver(int numberOfDisks) {
         for (int i = 0; i < stacks.length; i++) {
-            stacks[i] = new LinkedListStack<Integer>();
+            stacks[i] = new LinkedListStack<>();
         }
         for (int i = numberOfDisks; i > 0; i--) {
             stacks[0].offer(i);

@@ -12,7 +12,7 @@ import java.util.HashSet;
  */
 public class LinkedLists {
     public static IntegerLinkedList removeDuplicates(IntegerLinkedList integerLinkedList) {
-        HashSet<Node<Integer>> uniqueNodes = new HashSet<Node<Integer>>();
+        HashSet<Node<Integer>> uniqueNodes = new HashSet<>();
         Node<Integer> node = integerLinkedList.head();
         Node<Integer> previousNode = null;
 

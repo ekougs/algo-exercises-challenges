@@ -13,7 +13,7 @@ public class LinkedListStack<T> implements Stack<T> {
 
     public LinkedListStack(T firstElement) {
         this();
-        head = new Node<T>(firstElement);
+        head = new Node<>(firstElement);
     }
 
     @Override
@@ -36,7 +36,7 @@ public class LinkedListStack<T> implements Stack<T> {
 
     @Override
     public void offer(T element) {
-        Node<T> newHead = new Node<T>(element);
+        Node<T> newHead = new Node<>(element);
         if (isEmpty()) {
             head = newHead;
             return;

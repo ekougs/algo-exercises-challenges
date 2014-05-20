@@ -24,7 +24,7 @@ public class IntegerLinkedList implements Iterable<Integer> {
         while(node.next() != null) {
             node = node.next();
         }
-        node.setNext(new Node<Integer>(data));
+        node.setNext(new Node<>(data));
         size++;
     }
 
@@ -46,7 +46,7 @@ public class IntegerLinkedList implements Iterable<Integer> {
     }
 
     private void init(int data) {
-        head = new Node<Integer>(data);
+        head = new Node<>(data);
         size = 1;
     }
 
@@ -59,7 +59,7 @@ public class IntegerLinkedList implements Iterable<Integer> {
         return head;
     }
 
-    public void removeNext(Node node) {
+    public void removeNext(Node<Integer> node) {
         node.setNext(node.next().next());
         size--;
     }

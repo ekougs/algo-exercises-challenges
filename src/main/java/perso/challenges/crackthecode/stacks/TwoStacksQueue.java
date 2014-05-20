@@ -10,8 +10,8 @@ import perso.challenges.crackthecode.structure.Stack;
  * Time: 17:57
  */
 public class TwoStacksQueue<T> implements Queue<T> {
-    private final Stack<T> inputStack = new LinkedListStack<T>();
-    private final Stack<T> outputStack = new LinkedListStack<T>();
+    private final Stack<T> inputStack = new LinkedListStack<>();
+    private final Stack<T> outputStack = new LinkedListStack<>();
 
     @Override
     public T peek() {
