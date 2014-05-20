@@ -64,52 +64,6 @@ public class IntegerLinkedList implements Iterable<Integer> {
         size--;
     }
 
-//    public static class Node {
-//        private int data;
-//        private Node next;
-//
-//        public Node(int data) {
-//            this.data = data;
-//        }
-//
-//        public Node next() {
-//            return next;
-//        }
-//
-//        void setNext(Node next) {
-//            this.next = next;
-//        }
-//
-//        public int getData() {
-//            return data;
-//        }
-//
-//        @Override
-//        public boolean equals(Object o) {
-//            if (this == o) {
-//                return true;
-//            }
-//            if (o == null || getClass() != o.getClass()) {
-//                return false;
-//            }
-//
-//            Node node = (Node) o;
-//            return data == node.data;
-//        }
-//
-//        @Override
-//        public int hashCode() {
-//            return data;
-//        }
-//
-//        @Override
-//        public String toString() {
-//            return "Node{" +
-//                    "data=" + data +
-//                    '}';
-//        }
-//    }
-
     private static class LinkedListIterator implements Iterator<Integer> {
         private Node<Integer> node;
 

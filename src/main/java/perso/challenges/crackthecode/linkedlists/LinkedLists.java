@@ -113,16 +113,19 @@ public class LinkedLists {
     public static Node<Integer> getLoopingElement(IntegerLinkedList integerLinkedList) {
         Node<Integer> node = integerLinkedList.head();
         Node<Integer> doubleSpeedNode = integerLinkedList.head();
+        boolean checkPointFound = false;
+
         //On cherche un point de rendez-vous
         while (doubleSpeedNode.next() != null) {
             node = node.next();
             doubleSpeedNode = doubleSpeedNode.next().next();
             if (node.equals(doubleSpeedNode)) {
                 // Lorsqu'il est atteint, la tete est aussi pres du noeud de cycle que le doubleSpeedNode
+                checkPointFound = true;
                 break;
             }
         }
-        if (doubleSpeedNode.next() == null) {
+        if (!checkPointFound) {
             return null;
         }
         node = integerLinkedList.head();
